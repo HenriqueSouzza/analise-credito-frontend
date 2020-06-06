@@ -1,6 +1,6 @@
 import React from 'react';
 
-import imgLogo  from '../../images/logo.png';
+import imgLogo  from '../../../../uploads/iconAuth.png';
 
 import './style.css';
  
@@ -9,7 +9,7 @@ function Sidebar() {
     return (
         <div className="col-md-5 align-self-center sidebarAuth">
             <div className="login-logo">
-                <img src={imgLogo} className="brand-image img-logo img-circle elevation-3" alt={`LogoImage`} />
+                <img src={imgLogo} className="brand-image img-logo" alt={`LogoImage`} />
             </div>
             <div className="text-center">
                 <h1>
@@ -19,8 +19,8 @@ function Sidebar() {
                 </h1>
                 <h5>
                     <p className="text-white">
-                        Nossa plataforma UNIDOS está cheio de novidades.<br></br>
-                        Para realizar sua inscrição nos eventos do UNIDOS é só logar em nosso sistema.<br></br>
+                        Nossa portal está cheio de novidades.<br></br>
+                        Agora é possível acompanhar todos os seus clientes e fazer operações e análises de crédito.<br></br>
                     </p>
                 </h5>
             </div>

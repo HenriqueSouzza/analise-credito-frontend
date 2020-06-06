@@ -1,7 +1,7 @@
 /************************/
 .img-logo {
     width: 150px;
-    background: #fff
+    /* background: #fff */
 }
 
 @media (max-width: 750px) {

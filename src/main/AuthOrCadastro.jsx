@@ -12,7 +12,7 @@ function AuthOrCadastro() {
 
   return (
     <BrowserRouter>
-      <div className="container-fluid bg-danger">
+      <div className="container-fluid bg-success">
         <div className="row login-body">
           <Sidebar />
           <Content />
