@@ -12,15 +12,13 @@ import Button from '../../components/form/button';
 
 import LoadingBody from '../../components/loading/loadingBody';
 
-import { FORM_RULES, composeValidators, validateCpf } from '../../helpers/validations';
+import { FORM_RULES, composeValidators } from '../../helpers/validations';
 
 import { efetuarLogin } from './actions';
 
 import './style.css';
 
 import { Link } from 'react-router-dom';
-
-import imgLogo  from '../../components/template/images/logo.png';
 
 class Auth extends Component {
 
@@ -41,11 +39,6 @@ class Auth extends Component {
                     <LoadingBody status={loading} />
                     <div className="row login-body justify-content-center">
                         <div className="col-md-8 align-self-center">
-                            {/* <div className="logoMobile">
-                                <div className="text-center mb-4">
-                                    <img src={imgLogo} style={{width: '50px'}} className="brand-image img-logo img-circle elevation-3" alt={`LogoImage`} />
-                                </div>
-                            </div> */}
                             <h1>
                                 <p className="text-center">
                                     Acessar
@@ -64,10 +57,10 @@ class Auth extends Component {
                                                     component={Input} 
                                                     type={`text`}
                                                     name={`cpf`} 
-                                                    label={`CPF:`}
+                                                    label={`Matricula:`}
                                                     icon={`fa fa-user`}
                                                     placeholder={`00000000000`}
-                                                    validate={composeValidators(FORM_RULES.required, FORM_RULES.max(11), FORM_RULES.number, validateCpf)}
+                                                    validate={composeValidators(FORM_RULES.required, FORM_RULES.max(11), FORM_RULES.number)}
                                                     />
                                             </div>
                                         </div>
@@ -103,16 +96,6 @@ class Auth extends Component {
                                                 <Link to={`/esqueci-senha`}> 
                                                     Esqueci minha senha
                                                 </Link>
-                                            </div>
-                                        </div>
-                                        <div className="row mt-3 justify-content-center">
-                                            <div className="col-md-8">
-                                                {/* <label>&nbsp;</label> */}
-                                                <button type={`button`} 
-                                                        className="btn btn-info col-md-12" 
-                                                        onClick={() => this.onCadastro()}>
-                                                    Quero me cadastrar
-                                                </button>
                                             </div>
                                         </div>
                                     </form>
