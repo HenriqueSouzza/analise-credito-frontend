@@ -20,16 +20,10 @@ import './style.css';
 
 import { Link } from 'react-router-dom';
 
-import imgLogo  from '../../components/template/images/logo.png';
-
 class EsqueciSenha extends Component {
 
     onSubmit = values => {
         this.props.resetSenha(values, this.props.history)
-    }
-
-    onCadastro = () => {
-        this.props.history.push('/cadastro')
     }
 
     render() {
@@ -41,11 +35,6 @@ class EsqueciSenha extends Component {
                 <LoadingBody status={loading} />
                 <div className="row login-body justify-content-center">
                     <div className="col-md-8 align-self-center">
-                        {/* <div className="logoMobile">
-                            <div className="text-center mb-5">
-                                <img src={imgLogo} style={{width: '50px'}} className="brand-image img-logo img-circle elevation-3" alt={`LogoImage`} />
-                            </div>
-                        </div> */}
                         <h2>
                             <p className="text-center">
                                 Esqueci minha senha
@@ -63,26 +52,15 @@ class EsqueciSenha extends Component {
                                             <Field 
                                                 component={Input} 
                                                 type={`text`}
-                                                name={`cpf`} 
-                                                label={`CPF:`}
+                                                name={`matricula`} 
+                                                label={`Matricula:`}
+                                                maxLength={10}
                                                 icon={`fa fa-user`}
                                                 placeholder={`00000000000`}
-                                                validate={composeValidators(FORM_RULES.required, FORM_RULES.max(11), FORM_RULES.number, validateCpf)}
+                                                validate={composeValidators(FORM_RULES.required, FORM_RULES.min(6), FORM_RULES.max(11), FORM_RULES.number)}
                                                 />
                                         </div>
-                                    </div>
-                                    <div className="row justify-content-center">
-                                        <div className="col-md-8">
-                                            <Field 
-                                                component={Input} 
-                                                type={`date`}
-                                                name={`data_nascimento`} 
-                                                label={`Data de nascimento:`}
-                                                icon={`fa fa-calendar`}
-                                                validate={composeValidators(FORM_RULES.required)}
-                                                />
-                                        </div>
-                                    </div>
+                                    </div>  
                                     <div className="row justify-content-center">
                                         <div className="col-md-8">
                                             <Field 
@@ -103,7 +81,7 @@ class EsqueciSenha extends Component {
                                                 component={Button}
                                                 name={`sendEsqueci`}
                                                 type={`submit`} 
-                                                color={`btn-success`}
+                                                color={`btn-primary`}
                                                 icon={`fa fa-sign-in`} 
                                                 description={`Enviar`}
                                                 />

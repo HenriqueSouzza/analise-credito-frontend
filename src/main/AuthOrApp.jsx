@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-
 import '../components/template/dependencies';
 
 import App from'./App';
 
 import AuthOrCadastro from '../main/AuthOrCadastro';
-
-import LoadingBody from '../components/loading/loadingBody';
 
 class AuthOrApp extends Component{
     
@@ -16,11 +12,11 @@ class AuthOrApp extends Component{
 
         let token = sessionStorage.getItem('token');
         
+        console.log(token);
         if(token){
             
             return(
                 <div>
-                    {/* <LoadingBody status={ dadosCadastrais }/> */}
                     <App />
                 </div>
             )
@@ -29,7 +25,6 @@ class AuthOrApp extends Component{
 
             return(
                 <div>
-                    {/* <LoadingBody status={ auth }/> */}
                     <AuthOrCadastro />
                 </div>
             )

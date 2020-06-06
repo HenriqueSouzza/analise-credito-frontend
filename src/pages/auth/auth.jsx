@@ -26,10 +26,6 @@ class Auth extends Component {
         this.props.efetuarLogin(values, this.props.history)
     }
 
-    onCadastro = () => {
-        this.props.history.push('/cadastro')
-    }
-
     render() {
 
         let { loading } = this.props.auth
@@ -56,11 +52,12 @@ class Auth extends Component {
                                                 <Field 
                                                     component={Input} 
                                                     type={`text`}
-                                                    name={`cpf`} 
+                                                    name={`matricula`} 
                                                     label={`Matricula:`}
+                                                    maxLength={11}
                                                     icon={`fa fa-user`}
                                                     placeholder={`00000000000`}
-                                                    validate={composeValidators(FORM_RULES.required, FORM_RULES.max(11), FORM_RULES.number)}
+                                                    validate={composeValidators(FORM_RULES.required, FORM_RULES.min(6), FORM_RULES.max(10), FORM_RULES.number)}
                                                     />
                                             </div>
                                         </div>
@@ -71,6 +68,7 @@ class Auth extends Component {
                                                     type={`password`}
                                                     name={`senha`} 
                                                     label={`Senha:`}
+                                                    maxLength={9}
                                                     icon={`fa fa-key`}
                                                     placeholder={`********`}
                                                     validate={composeValidators(FORM_RULES.required, FORM_RULES.max(8))}
@@ -84,7 +82,7 @@ class Auth extends Component {
                                                     component={Button}
                                                     name={`sendAuth`}
                                                     type={`submit`} 
-                                                    color={`btn-success`}
+                                                    color={`btn-primary`}
                                                     icon={`fa fa-sign-in`} 
                                                     description={`Entrar`}
                                                     />
