@@ -12,7 +12,6 @@ class AuthOrApp extends Component{
 
         let token = sessionStorage.getItem('token');
         
-        console.log(token);
         if(token){
             
             return(

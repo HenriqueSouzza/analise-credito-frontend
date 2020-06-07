@@ -4,9 +4,7 @@ import { Route, Switch  } from 'react-router-dom';
 
 import Dashboard from '../../../pages/dashboard/router';
 
-import DadosCadastrais from '../../../pages/dadosCadastrais/router';
-
-import AcampUnidos from '../../../pages/acampUnidos/router';
+import Atendimento from '../../../pages/atendimento/router';
 
 import Sair from '../../../pages/sair/router';
 
@@ -17,8 +15,7 @@ function Content(){
         <div className="content-wrapper">
             <Switch>
                 <Route exact path='/' component={Dashboard} />
-                <Route path='/dados-cadastrais' component={DadosCadastrais} />
-                <Route path='/acamp-unidos' component={AcampUnidos} />
+                <Route path='/atendimento' component={Atendimento} />
                 <Route path='/sair' component={Sair} />
                 <Route path="*" component={PaginaNaoEncontrada}/>
             </Switch>

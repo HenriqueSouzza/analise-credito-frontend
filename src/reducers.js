@@ -7,18 +7,14 @@ import { reducer as toastrReducer } from 'react-redux-toastr'; //redux do compon
 //Auth
 import AuthReducer from './pages/auth/reducer';
 
-//Dados Cadastrais
-import DadosCadastraisReducer from './pages/dadosCadastrais/reducer';
-
-//Dados Cadastrais
-import AcampUnidosReducer from './pages/acampUnidos/inscrever/reducer';
+//Atendimento
+import AtendimentoReducer from './pages/atendimento/reducer';
 
 const rootReducer = combineReducers({
     toastr: toastrReducer,
     auth: AuthReducer,
     dashboard: () => ({ test: 1500 }),
-    dadosCadastrais: DadosCadastraisReducer,
-    acampUnidos: AcampUnidosReducer,
+    atendimento: AtendimentoReducer,
 })
 
 export default rootReducer; 
