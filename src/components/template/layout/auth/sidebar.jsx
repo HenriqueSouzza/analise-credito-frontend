@@ -12,17 +12,13 @@ function Sidebar() {
                 <img src={imgLogo} className="brand-image img-logo" alt={`LogoImage`} />
             </div>
             <div className="text-center">
-                <h1>
-                    <p className="text-white">
-                        Bem-vindo !
-                    </p>
-                </h1>
-                <h5>
-                    <p className="text-white">
-                        Nossa portal está cheio de novidades.<br></br>
-                        Agora é possível acompanhar todos os seus clientes e fazer operações e análises de crédito.<br></br>
-                    </p>
-                </h5>
+                <div className="text-white">
+                    <div style={{fontSize: 21}}>
+                        <strong>Bem-vindo,</strong>
+                    </div>
+                    Nossa portal está cheio de novidades.<br/>
+                    Agora é possível acompanhar todos os seus clientes e fazer operações e análises de crédito.<br/>
+                </div>
             </div>
         </div>
     )

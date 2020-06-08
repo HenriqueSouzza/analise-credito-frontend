@@ -41,7 +41,7 @@ class EsqueciSenha extends Component {
                             </p> 
                         </h2>
                         <p className="text-center">
-                            <small>Por favor ! Confirme os dados abaixo, e informe seu e-mail para que seja enviado uma nova senha</small>
+                            <small>Confirme sua matrícula, e informe seu e-mail para que seja enviado uma nova senha</small>
                         </p>
                         <Form
                             onSubmit={this.onSubmit}

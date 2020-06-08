@@ -41,7 +41,7 @@ class Auth extends Component {
                                 </p> 
                             </h1>
                             <p className="text-center">
-                                <small>Informe seu login e senha para acessar</small>
+                                <small>Informe sua matrícula e senha para acessar</small>
                             </p>
                             <Form
                                 onSubmit={this.onSubmit}
