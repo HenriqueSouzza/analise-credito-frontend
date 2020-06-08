@@ -34,14 +34,14 @@ class Visualizar extends Component{
 
         let totalTmp = dadosEmprestimo.reduce((total, item) => (total + item.vlrParcel), 0);
 
-        let total = ((dadosCadastrais.rendaMensal * 30) / 100) > totalTmp ? ((dadosCadastrais.rendaMensal * 30) / 100) - totalTmp : 0
-
         let dadoCliente = []
-
+        
         if(dadosClientes.length > 0){
-           dadoCliente.push(dadosClientes.find(response => ( response.cpf == this.props.match.params.id ? response : [] )))
+            dadoCliente.push(dadosClientes.find(response => ( response.cpf == this.props.match.params.id ? response : [] )))
         }
 
+        let total = ((dadoCliente[0].rendaMensal * 30) / 100) > totalTmp ? ((dadoCliente[0].rendaMensal * 30) / 100) - totalTmp : 0
+        
         return(
             <section className="content">
                 <MenuHeader title={`Detalhe do cliente`} history={this.props.location.pathname} />
@@ -82,6 +82,11 @@ class Visualizar extends Component{
                             </div>
                             <div className="card-body">
                                 <div className="row">
+                                    <div className="col-md-12">
+                                        <span className="text-danger">
+                                            * O margem de empréstimo não pode comprometer mais de 30% da renda mensal
+                                        </span>
+                                    </div>
                                     <div className="card col-md-6 p-2 bg-light">
                                         <div className="row text-center">
                                             <div className="col-md-6">
@@ -90,7 +95,7 @@ class Visualizar extends Component{
                                             </div>
                                             <div className="col-md-6">
                                                 Renda mensal: <br/>
-                                                <strong>R$ {parseFloat(dadosCadastrais.rendaMensal)}</strong>
+                                                <strong>R$ {parseFloat(dadoCliente[0].rendaMensal)}</strong>
                                             </div>
                                         </div>
                                     </div>
