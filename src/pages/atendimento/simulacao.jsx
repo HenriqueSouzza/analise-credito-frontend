@@ -146,7 +146,7 @@ class Simulacao extends Component{
                         </div>
                     </div>
                 </div>
-                {this.state.result != '' ? this.onResult() : ''}
+                {this.state.result !== '' ? this.onResult() : ''}
             </section>
         )
     }

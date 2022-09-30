@@ -19,19 +19,19 @@ import TableAction from './tableAction';
  * @param {*} router 
  * @param {*} data 
  */
-function btnActionsHeader(btnAdd, btnExportCSV, router, data){
+function btnActionsHeader(btnAdd, btnExportCSV, router, data) {
 
     const btnAction = []
 
     const btnNovo = (<Button key={1} description={`Adicionar`} color={`btn-success`} icon={`fa-plus`} router={router.location.pathname + '/novo'} />)
-    
+
     const btnExport = (<ButtonExport key={2} description={`Exportar CSV`} data={data} color={`btn-primary`} icon={`fa-file-excel`} />)
 
-    if(btnAdd){
+    if (btnAdd) {
         btnAction.push(btnNovo)
     }
-    
-    if(btnExportCSV){
+
+    if (btnExportCSV) {
         btnAction.push(btnExport)
     }
 
@@ -39,16 +39,16 @@ function btnActionsHeader(btnAdd, btnExportCSV, router, data){
 
 }
 
-function Table(props){
-    
+function Table(props) {
+
     const { description, checkbox, columns, data, setCheckbox, router, btnAdd, actions, loading, actionDelete, btnExportCSV } = props
 
     //Icone do loading da table
-    const CustomLoader = () => (<div style={{ padding: '24px' }}> <Spinner color={`text-primary`}/> </div>)
-    
+    const CustomLoader = () => (<div style={{ padding: '24px' }}> <Spinner color={`text-primary`} /> </div>)
+
     //função para colocar botões de ações no topo da tabela
     const btnActions = btnActionsHeader(btnAdd, btnExportCSV, router, data)
-    
+
     //Estado (hooks) para manipular quando irá apresentar a modal de confirmação 
     const [visibled, setVisibled] = useState(false)
 
@@ -59,22 +59,25 @@ function Table(props){
     const [idDelete, setIdDelete] = useState(null)
 
     //Habilitar a opção de ações em cada linha da tabela (visualizar, duplicar, excluir)
-    if(actions){
+    if (actions) {
         columns.push({
-            cell: row => <TableAction setVisibled={setVisibled} setMessage={setMessage} visibled={visibled} router={router} actions={actions} params={row[Object.keys(row)[0]]} setIdDelete={setIdDelete} />, 
+            cell: row => <TableAction setVisibled={setVisibled} setMessage={setMessage} visibled={visibled} router={router} actions={actions} params={row[Object.keys(row)[0]]} setIdDelete={setIdDelete} />,
             allowOverflow: true,
             // button: true,
             width: '120px',
             name: 'Ações'
         })
     }
-    
+
     const btnConfirm = ([
         { secondary: true, children: 'Cancel', onClick: () => setVisibled(!visibled) },
-        <ButtonCustom flat primary onClick={() => (setVisibled(!visibled), actionDelete(idDelete))}>Confirmar</ButtonCustom>
+        <ButtonCustom
+            flat
+            primary
+            onClick={() => [setVisibled(!visibled), actionDelete(idDelete)]}>Confirmar</ButtonCustom>
     ])
 
-    return(
+    return (
         <div>
             <DataTable
                 title={description} //Título da tabela

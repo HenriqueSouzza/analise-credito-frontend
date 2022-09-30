@@ -12,17 +12,13 @@ import Input from '../../components/form/input';
 
 import Button from '../../components/form/button';
 
-import { FORM_RULES, composeValidators, validateCpf } from '../../helpers/validations';
+import { FORM_RULES, composeValidators } from '../../helpers/validations';
 
 import { Form, Field } from 'react-final-form';
 
 import { novoCliente } from './actions';
 
 class Novo extends Component{
-
-    constructor(props){
-        super(props)
-    }
 
     onSubmit = values => {
         this.props.novoCliente(values, this.props.history)

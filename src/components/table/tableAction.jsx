@@ -8,7 +8,7 @@ function TableAction(props){
 
     const menuActions = []
 
-    actions.map(action => {
+    actions.forEach(action => {
         switch (action) {
             case 'can_detail':
                 menuActions.push({
@@ -39,9 +39,11 @@ function TableAction(props){
                 menuActions.push({
                     leftIcon: <i className="fa fa-trash"></i>,
                     primaryText: <span className="md-text--error">Delete</span>,
-                    onClick: () => (setVisibled(!visibled), setMessage('Deseja realmente remover esse item ?'), setIdDelete(params))
+                    onClick: () => [setVisibled(!visibled), setMessage('Deseja realmente remover esse item ?'), setIdDelete(params)]
                 })
-            break;
+                break;
+            default:
+                break;
         }
     })
 

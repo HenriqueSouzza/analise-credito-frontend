@@ -12,7 +12,7 @@ import Button from '../../components/form/button';
 
 import LoadingBody from '../../components/loading/loadingBody';
 
-import { FORM_RULES, composeValidators, validateCpf } from '../../helpers/validations';
+import { FORM_RULES, composeValidators } from '../../helpers/validations';
 
 import { resetSenha } from './actions';
 

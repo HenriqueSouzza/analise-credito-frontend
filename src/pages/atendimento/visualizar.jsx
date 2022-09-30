@@ -10,15 +10,12 @@ import LoadingBody from '../../components/loading/loadingBody';
 
 class Visualizar extends Component{
 
-    constructor(props){
-        super(props)
-        this.state = {
-            dadosCadastrais: {
-                cpf: '12345678912',
-                nomeCompleto: 'João da serra',
-                dataNascimento: '01-01-2020',
-                rendaMensal: 1200,
-            }
+    state = {
+        dadosCadastrais: {
+            cpf: '12345678912',
+            nomeCompleto: 'João da serra',
+            dataNascimento: '01-01-2020',
+            rendaMensal: 1200,
         }
     }
 
@@ -28,8 +25,6 @@ class Visualizar extends Component{
     
     render(){
 
-        let { dadosCadastrais } = this.state
-        
         let { loading, dadosEmprestimo, dadosClientes } = this.props.atendimento
 
         let totalTmp = dadosEmprestimo.reduce((total, item) => (total + item.vlrParcel), 0);
@@ -37,7 +32,7 @@ class Visualizar extends Component{
         let dadoCliente = []
         
         if(dadosClientes.length > 0){
-            dadoCliente.push(dadosClientes.find(response => ( response.cpf == this.props.match.params.id ? response : [] )))
+            dadoCliente.push(dadosClientes.find(response => ((response.cpf === this.props.match.params.id && response) || [] )))
         }
 
         let total = ((dadoCliente[0].rendaMensal * 30) / 100) > totalTmp ? ((dadoCliente[0].rendaMensal * 30) / 100) - totalTmp : 0
